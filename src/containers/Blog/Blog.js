@@ -17,7 +17,7 @@ class Blog extends Component {
     //axios uses promises and GET returns a promise.
     //Promises is a method which takes a function as the input and this function will get executed once the promise resolves
     componentDidMount() {
-        axios.get('https://jsonplaceholder.typicode.com/posts')
+        axios.get('/posts')
             .then(response => {
                 //Transforming Data - Adding Author Example
                 //slice() is to get only 0 to 4 items in the data from json

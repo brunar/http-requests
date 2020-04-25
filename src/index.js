@@ -5,6 +5,11 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import axios from 'axios';
 
+//See in the console
+axios.defaults.baseURL = 'https://jsonplaceholder.typicode.com';
+axios.defaults.headers.common['Authorization'] = 'AUTH TOKEN';
+axios.defaults.headers.post['Content-Type'] = 'application/json'; //do not need do that only showing possibilities
+
 //Show the error for requests Globally 
 //Always need to return the request otherwise it will block the request, you see the error - somenting went wrong
 //To simulate an error example on blog change the url axios.get
