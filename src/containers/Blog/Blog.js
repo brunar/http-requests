@@ -15,7 +15,8 @@ class Blog extends Component {
                         <ul>
                             <li><Link to="/">Home</Link></li>
                             <li><Link to={{
-                                pathname: '/new-post',
+                                //Building a relative path: your domain/something path and plus something
+                                pathname: this.props.match.url + '/new-post',
                                 hash: '#submit',
                                 search: '?quick-submit=true'
                             }}>New Post</Link></li>
