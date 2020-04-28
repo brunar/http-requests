@@ -11,6 +11,8 @@ class Posts extends Component {
     //axios uses promises and GET returns a promise.
     //Promises is a method which takes a function as the input and this function will get executed once the promise resolves
     componentDidMount() {
+        console.log(this.props);
+
         axios.get('/posts')
             .then(response => {
                 //Transforming Data - Adding Author Example
