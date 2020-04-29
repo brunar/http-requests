@@ -9,10 +9,12 @@ class FullPost extends Component {
         loadedPost: null
     }
 
-    componentDidUpdate() {
-        if (this.props.idP) {
+    componentDidMount() {
+        console.log(this.props);
+        //match.params.id was defined in the Route path="/:id" , has to be same name
+        if (this.props.match.params.id) {
             if (!this.state.loadedPost || (this.state.loadedPost && this.state.loadedPost.id !== this.props.idP)) {
-                axios.get('/posts/' + this.props.idP)
+                axios.get('/posts/' + this.props.match.params.id)
                     .then(response => {
                         //console.log(response);
                         this.setState({ loadedPost: response.data });
