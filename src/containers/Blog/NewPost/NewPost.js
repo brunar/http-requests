@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 import './NewPost.css';
-import { Redirect } from 'react-router';
+//import { Redirect } from 'react-router';
 
 class NewPost extends Component {
     state = {
@@ -25,18 +25,21 @@ class NewPost extends Component {
         axios.post('/posts', data)
             .then(response => {
                 console.log(response);
-                this.setState({ submitted: true })
+                //History Push - Allows the back button on Browser be back and History Relpace does not allow, do the same Redirect
+                //this.props.history.push('/posts');
+                this.props.history.replace('/posts');
+                //this.setState({ submitted: true })
             });
     }
 
     render() {
-        let redirectV = null;
-        if (this.state.submitted) {
-            redirectV = <Redirect to="/posts" />
-        }
+        // let redirectV = null;
+        // if (this.state.submitted) {
+        //     redirectV = <Redirect to="/posts" />
+        // }
         return (
             <div className="NewPost">
-                {redirectV}
+                {/* {redirectV} */}
                 <h1>Add a Post</h1>
                 <label>Title</label>
                 <input type="text" value={this.state.title} onChange={(event) => this.setState({ title: event.target.value })} />
