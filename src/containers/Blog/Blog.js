@@ -3,12 +3,17 @@ import { Route, NavLink, Switch, Redirect } from 'react-router-dom';
 
 import './Blog.css';
 import Posts from '../Posts/Posts';
-import NewPost from './NewPost/NewPost';
+import asyncComponent from '../../hoc/asyncComponent';
+//import NewPost from './NewPost/NewPost';
+
+const AsyncNewPost = asyncComponent(() => {
+    return import('./NewPost/NewPost');
+});
 
 //To simulate an error example change the url axios.get
 class Blog extends Component {
     state = {
-        auth: false
+        auth: true
     }
     render() {
         return (
@@ -42,7 +47,7 @@ class Blog extends Component {
                 for the new-post not to be treat as id and can put some Route outside of switch
                  */}
                 <Switch>
-                    {this.state.auth ? <Route path="/new-post" component={NewPost} /> : null}
+                    {this.state.auth ? <Route path="/new-post" component={AsyncNewPost} /> : null}
                     <Route path="/posts" component={Posts} />
                     <Route render={() => <h1>Not Found</h1>} />
                     {/* <Redirect from="/" to="/posts" /> */}
