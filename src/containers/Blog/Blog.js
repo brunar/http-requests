@@ -7,6 +7,9 @@ import NewPost from './NewPost/NewPost';
 
 //To simulate an error example change the url axios.get
 class Blog extends Component {
+    state = {
+        auth: false
+    }
     render() {
         return (
             <div className="Blog">
@@ -39,7 +42,7 @@ class Blog extends Component {
                 for the new-post not to be treat as id and can put some Route outside of switch
                  */}
                 <Switch>
-                    <Route path="/new-post" component={NewPost} />
+                    {this.state.auth ? <Route path="/new-post" component={NewPost} /> : null}
                     <Route path="/posts" component={Posts} />
                     <Redirect from="/" to="/posts" />
                     {/* <Route path="/" component={Posts} /> */}
