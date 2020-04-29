@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, NavLink } from 'react-router-dom';
+import { Route, NavLink, Switch } from 'react-router-dom';
 
 import './Blog.css';
 import Posts from '../Posts/Posts';
@@ -35,9 +35,15 @@ class Blog extends Component {
                 {/* <Route path="/" exact render={() => <h1>Home</h1>} /> */}
                 {/* Without exact does means any path that starts with /  */}
                 {/* <Route path="/" render={() => <h1>Home 2</h1>} /> */}
+                {/* Switch means running the first Route thats match the path, 
+                and won't render any other Route and the order is important 
+                for the new-post not to be treat as id and can put some Route outside of switch
+                 */}
                 <Route path="/" exact component={Posts} />
-                <Route path="/new-post" component={NewPost} />
-                <Route path="/:id" component={FullPost} />
+                <Switch>
+                    <Route path="/new-post" component={NewPost} />
+                    <Route path="/:id" component={FullPost} />
+                </Switch>
             </div>
         );
     }
