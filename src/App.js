@@ -8,7 +8,7 @@ class App extends Component {
     return (
       //Example if your site is server at www.mysite.com/my-app and the Route will contnue working
       //<BrowserRouter basename="my-app">
-      <BrowserRouter>
+      <BrowserRouter basename="/view/http-requests">
         <div className="App">
           <Blog />
         </div>

@@ -1,5 +1,6 @@
 {
   "name": "react-complete-guide",
+  "homepage": "https://www.brunajs.com/view/http-requests",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
